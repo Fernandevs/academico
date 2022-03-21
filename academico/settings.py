@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'academico.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd5pogiv72m8f9k',
+        'USER': 'gqpxxrvycypzme',
+        'PASSWORD': 'ba53c29c54a9a9d09e14212d8e0306da1bf043e683c44e53965955b8873a4676',
+        'HOST': 'ec2-54-146-82-179.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -105,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-mx'
 
 TIME_ZONE = 'UTC'
 
