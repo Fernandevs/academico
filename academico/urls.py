@@ -18,4 +18,5 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('eliminar-usuario/<id>', eliminar_usuarios, name="eliminar usuario"),
 ]
