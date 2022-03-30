@@ -10,7 +10,7 @@ class UserForm(UserCreationForm):
             'username',
             'first_name',
             'last_name',
-            'email'
+            'email',
         ]
 
         labels = {
@@ -18,4 +18,17 @@ class UserForm(UserCreationForm):
             'first_name': 'Nombre',
             'last_name': 'Apellidos',
             'email': 'Correo',
+        }
+
+
+class UserPasswordForm(UserCreationForm):
+    class Meta:
+        model = User
+
+        fields = [
+            'password'
+        ]
+
+        labels = {
+            'password': 'contraseña'
         }
