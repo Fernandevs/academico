@@ -1,0 +1,78 @@
+{% extends 'body.html' %}
+{% load static %}
+
+{% block head %}
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+{% endblock %}
+
+{% block title %}
+	{{ title }}
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="white-box">
+				<h3 class="box-title">Carreras</h3>
+				<div class="table-responsive">
+					<table class="table text-nowrap">
+						<thead>
+						<tr>
+							<th class="border-top-0">#</th>
+							<th class="border-top-0">Carrera</th>
+							<th class="border-top-0">Plan de estudios</th>
+							<th class="border-top-0">Periodo</th>
+							<th class="border-top-0">Año</th>
+							<th class="border-top-0">Número de ficha</th>
+							<th class="border-top-0">Número de control</th>
+							<th class="border-top-0">Escuela de procedencia</th>
+							<th class="border-top-0">Promedio</th>
+							<th class="border-top-0">Localidad de origen</th>
+							<th class="border-top-0">Municipio de origen</th>
+							<th class="border-top-0">Sexo</th>
+							<th class="border-top-0">Edad</th>
+							<th class="border-top-0">Calificacion del examen de ingreso</th>
+						</tr>
+						</thead>
+						<tbody>
+						{% for student in student_list %}
+							<tr>
+								<td>{{ student.id }}</td>
+								<td>{{ student.career }}</td>
+								<td>{{ student.plan }}</td>
+								<td>{{ student.period }}</td>
+								<td>{{ student.year }}</td>
+								<td>{{ student.no_de_ficha }}</td>
+								<td>{{ student.no_de_control }}</td>
+								<td>{{ student.escuela_de_procedencia }}</td>
+								<td>{{ student.promedio }}</td>
+								<td>{{ student.localidad_de_origen }}</td>
+								<td>{{ student.municipio_de_origen }}</td>
+								<td>{{ student.sexo }}</td>
+								<td>{{ student.edad }}</td>
+								<td>{{ student.calificacion_del_examen_de_ingreso }}</td>
+								<td>
+									<a href="{% url 'update_student' career.id %}">
+										<button type="button" class="btn btn-warning btn-xs btn-flat">
+											<i class="fas fa-pencil-alt" style="color: white"></i>
+										</button>
+									</a>
+									<a href="{% url 'delete_student' career.id %}">
+										<button type="button" class="btn btn-danger btn-xs btn-flat">
+											<i class="fas fa-trash-alt" style="color: white"></i>
+										</button>
+									</a>
+								</td>
+							</tr>
+						{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<a href="{% url 'create_student' %}">
+				<button type="button" class="btn btn-primary">Agregar</button>
+			</a>
+		</div>
+	</div>
+{% endblock %}

@@ -20,36 +20,27 @@
 						<thead>
 						<tr>
 							<th class="border-top-0">#</th>
-							<th class="border-top-0">Username</th>
-							<th class="border-top-0">Nombre(s)</th>
-							<th class="border-top-0">Apellidos</th>
-							<th class="border-top-0">Correo</th>
-							<th class="border-top-0">Rol</th>
-							<th class="border-top-0">Acciones</th>
+							<th class="border-top-0">Carrera</th>
+							<th class="border-top-0">Está activa</th>
 						</tr>
 						</thead>
 						<tbody>
-						{% for user in user_list %}
+						{% for career in career_list %}
 							<tr>
-								<td>{{ user.id }}</td>
-								<td>{{ user.username }}</td>
-								<td>{{ user.first_name }}</td>
-								<td>{{ user.last_name }}</td>
-								<td>{{ user.email }}</td>
+								<td>{{ career.id }}</td>
+								<td>{{ career.get_career_display }}</td>
+								{% if career.is_active %}
+									<td>Sí</td>
+								{% else %}
+									<td>No</td>
+								{% endif %}
 								<td>
-									{% if user.is_superuser %}
-										Administrador
-									{% else %}
-										Usuario común
-									{% endif %}
-								</td>
-								<td>
-									<a href="{% url 'update_user' user.id %}">
+									<a href="{% url 'update_career' career.id %}">
 										<button type="button" class="btn btn-warning btn-xs btn-flat">
 											<i class="fas fa-pencil-alt" style="color: white"></i>
 										</button>
 									</a>
-									<a href="{% url 'delete_user' user.id %}">
+									<a href="{% url 'update_career' career.id %}">
 										<button type="button" class="btn btn-danger btn-xs btn-flat">
 											<i class="fas fa-trash-alt" style="color: white"></i>
 										</button>
@@ -61,7 +52,7 @@
 					</table>
 				</div>
 			</div>
-			<a href="{% url 'create_user' %}">
+			<a href="{% url 'create_career' %}">
 				<button type="button" class="btn btn-primary">Agregar</button>
 			</a>
 		</div>
